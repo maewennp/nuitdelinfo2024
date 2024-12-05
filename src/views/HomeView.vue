@@ -1,11 +1,3 @@
-<template>
-  <div class="ocean">
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import TheWelcome from '../components/TheWelcome.vue'
 import InfoModale from '@/components/InfoModale.vue'
@@ -17,16 +9,19 @@ import Event from '@/components/Event.vue'
   <main>
     <InfoModale />
     <Event />
-    <TheWelcome />
+    <div class="ocean">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
   </main>
 </template>
-</script>
 
 <style scoped>
 
-/* waves */
+
 .ocean {
-  height: 280px; /* change the height of the waves here */
+  height: 280px;
   width: 100%;
   position: absolute;
   bottom: 0;

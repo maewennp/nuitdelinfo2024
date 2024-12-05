@@ -65,9 +65,9 @@ import { ref } from 'vue';
         // console.log(states[activeState % 5]);
         // UpdateSliders(states[activeState % 5].TemperatureUpdates, states[activeState % 5].CO2Updates, states[activeState % 5].PolutionUpdates, states[activeState % 5].FishingUpdates);
         // console.log(Temperature);
-        document.getElementById("background").src = states[activeState % 5].background;
+        (document.getElementById("background")as HTMLImageElement).src = states[activeState % 5].background;
         // if (states[activeState % 5].filter != '') 
-        document.getElementById("background").style = states[activeState % 5].filter;
+        document.getElementById("background")!.style = states[activeState % 5].filter;
 
         // console.log(activeState % 5);
         console.log(TrafficStatus%2);
