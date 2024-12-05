@@ -4,8 +4,11 @@ import InfoModale from '@/components/InfoModale.vue'
 </script>
 
 <template>
-  <main>
-    <InfoModale />
-    <TheWelcome />
-  </main>
+  <InfoModale />
+  <TheWelcome />
+  <JaugePlate />
 </template>
+
+<script lang="ts">
+import JaugePlate from '../components/VueGauge.vue'
+</script>
