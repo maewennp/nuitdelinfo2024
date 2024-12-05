@@ -10,11 +10,13 @@
 import TheWelcome from '../components/TheWelcome.vue'
 import InfoModale from '@/components/InfoModale.vue'
 import Gauge from '../components/Gauge.vue'
+import Event from '@/components/Event.vue'
 </script>
 
 <template>
   <main>
     <InfoModale />
+    <Event />
     <TheWelcome />
   </main>
 </template>
