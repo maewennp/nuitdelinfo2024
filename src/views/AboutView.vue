@@ -43,10 +43,10 @@
 </template>
 
 <style>
-/*body {
+body {
   margin: 0;
   background-color: rgb(184, 236, 253);
-}*/
+}
 
 .container {
   position: relative;

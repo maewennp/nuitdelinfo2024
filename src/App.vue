@@ -54,6 +54,8 @@ import HelloWorld from './components/HelloWorld.vue'
 <style scoped>
 header {
   width: 100%;
+  background-color: rgb(250, 221, 95);
+  color: black;
 }
 
 
