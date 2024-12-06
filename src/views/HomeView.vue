@@ -114,7 +114,7 @@ function ToggleHealth(Id: number) {
     if (Id == 1) document.getElementById("ocean")!.classList.remove('grayClass');
     document.getElementById("Estomac")!.style.visibility = "hidden";
     document.getElementById("Peau")!.style.visibility = "hidden";
-    document.getElementById("Reins")!.style.visibility = "hidden";
+    document.getElementById("Rein")!.style.visibility = "hidden";
     
     HealthStatus = 0;
     // reset la vue
@@ -129,7 +129,7 @@ function ToggleHealth(Id: number) {
     
     document.getElementById("Estomac")!.style.visibility = "visible";
     document.getElementById("Peau")!.style.visibility = "visible";
-    document.getElementById("Reins")!.style.visibility = "visible";
+    document.getElementById("Rein")!.style.visibility = "visible";
     
     // if (Health>=0) {
       if (Id == 1 || Id == 4) Health = -10;
@@ -145,7 +145,7 @@ function TogglePollution(Id: number) {
   if (activeButtonPollution != 0)
     document.getElementById('Pollution'+activeButtonPollution)?.classList.remove('activeButton');
   if (PollutionStatus == Id) {
-    document.getElementById("Poumon")!.style.visibility = "hidden";
+    document.getElementById("Poumons")!.style.visibility = "hidden";
     // document.getElementById('Pollution'+activeButtonPollution)?.classList.remove('activeButton');
     CO2 = 0;
     PollutionStatus = 0;
@@ -153,7 +153,7 @@ function TogglePollution(Id: number) {
   else {
     activeButtonPollution = Id;
     document.getElementById('Pollution'+activeButtonPollution)?.classList.add('activeButton');
-    document.getElementById("Poumon")!.style.visibility = "visible";
+    document.getElementById("Poumons")!.style.visibility = "visible";
     if (CO2>=0) CO2 = 10;
     PollutionStatus = Id;
   }
