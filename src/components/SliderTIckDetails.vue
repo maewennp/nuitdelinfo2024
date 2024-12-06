@@ -4,12 +4,12 @@ import type { ColorI } from '@/types/color.ts'
 
 const colors: ColorI[] = [
   { id: 0, value: "green" },
-  { id: 1, value: "yellow" },
-  { id: 2, value: "red" },
+  { id: 10, value: "red" },
 ];
 
 const props = defineProps<{
   valueSlider: number
+  valueContent: string
 }>()
 
 const colorActive = computed(() => {
@@ -17,20 +17,28 @@ const colorActive = computed(() => {
   return matchingColor ? matchingColor.value : "green"; // Valeur par défaut
 });
 
+console.log(colorActive.value);
+
 </script>
 
 <template>
-  <div>
-    <v-slider
-      :color="colorActive.valueOf()"
-      :model-value="props.valueSlider"
-      min="0"
-      max="2"
-      step="1"
-      show-ticks="always"
-      disabled
-    />
+  <div id="titleSlider">
+    <div id="slider">
+      <h3>- {{ props.valueContent }}</h3>
+      <v-slider
+        :color="colorActive.valueOf()"
+        :model-value="props.valueSlider"
+        min="0"
+        max="10"
+        step="10"
+        show-ticks="always"
+        >
+      </v-slider>
+    </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+
+</style>

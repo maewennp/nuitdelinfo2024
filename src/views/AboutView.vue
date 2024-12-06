@@ -4,6 +4,12 @@ import Event from '@/components/Event.vue'
 <template>
   <div class="container">
 
+    <div class="block-slider">
+      <h2  class="title-information">Informations</h2>
+      <SliderTIckDetails :value-slider="0" :value-content="'Test'"/>
+      <SliderTIckDetails :value-slider="0" :value-content="'Test'"/>
+      <SliderTIckDetails :value-slider="0" :value-content="'Test'"/>
+    </div>
     <div id="sky">
       <div class="cloud"></div>
       <div class="cloud"></div>
@@ -51,6 +57,18 @@ import Event from '@/components/Event.vue'
 body {
   margin: 0;
   background-color: rgb(184, 236, 253);
+}
+
+.title-information{
+  text-align: center;
+}
+
+.block-slider{
+  display: block;
+  width: 20%;
+  float: right;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .container {
@@ -413,3 +431,6 @@ body {
 
 
 </style>
+<script setup lang="ts">
+import SliderTIckDetails from '@/components/SliderTIckDetails.vue'
+</script>
