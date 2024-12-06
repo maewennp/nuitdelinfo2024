@@ -65,18 +65,14 @@ import { ref } from 'vue';
         // console.log(states[activeState % 5]);
         // UpdateSliders(states[activeState % 5].TemperatureUpdates, states[activeState % 5].CO2Updates, states[activeState % 5].PolutionUpdates, states[activeState % 5].FishingUpdates);
         // console.log(Temperature);
-        (document.getElementById("background")as HTMLImageElement).src = states[activeState % 5].background;
+        // (document.getElementById("background")as HTMLImageElement).src = states[activeState % 5].background;
         // if (states[activeState % 5].filter != '') 
-        document.getElementById("background")!.style = states[activeState % 5].filter;
-
+        document.getElementsByTagName("main")!.style = states[activeState % 5].filter;
         // console.log(activeState % 5);
         console.log(TrafficStatus%2);
         console.log(HealthStatus);
         console.log(PollutionStatus);
         console.log("Temperature" + Temperature + " CO2" + CO2 + " Health " + Health);
-        
-        // if Traffic % 2 = 0 : pas de traffic, else du traffic
-        // if 
     }
     const trafficButtonMessage = ref<string>("Traffic maritime : ON");
     // let trafficButtonMessage = 'Traffic maritime : ON';
@@ -105,34 +101,118 @@ import { ref } from 'vue';
     }
 </script>
 <template>
-    <img id="background" src="">
-    <div>
-        <p>Event temperature</p>
-        <v-btn id = "TrafficButton" variant="outlined" @click="ToggleTraffic()">
-            {{trafficButtonMessage}}
-        </v-btn>
+    <div class="coucou">
 
-    </div>
+        <!-- <img id="background" src=""> -->
+        <div class="block-event">
+    <div id = "moi" class="coucou">
+
     <div>
-        <p>Event santés</p>
-        <v-btn variant="outlined" @click="ToggleHealth(1)">
-            Marrée noire
+        <img id="background" src="">
+        <div>
+            <p>Event temperature</p>
+            <v-btn id = "TrafficButton" variant="outlined" @click="ToggleTraffic()">
+                {{trafficButtonMessage}}
+            </v-btn>
+        </div>
+
+        <div class="block-event-central">
+            <p>Event santés</p>
+            <div class="little-block">
+                <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(1)">
+                Marrée noire
+                </v-btn>
+                <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(3)">
+                    Filets recup plastique
+                </v-btn>
+            </div>
+
+            <div class="little-block">
+                <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(2)">
+                    Quota de peche
+                </v-btn>
+                <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(4)">
+                    Polution micro-plastique
+                </v-btn>
+            </div>
+        </div>
+
+        <div class="block-event">
+            <p>Event pollution</p>
+            <v-btn class="width-button-event" variant="outlined" @click="TogglePollution(1)">
+                Energies renouvelables
+            </v-btn>
+            <v-btn class="width-button-event" variant="outlined" @click="TogglePollution(2)">
+                Déforestation
+            </v-btn>
+        </div>
+    </div>
+</template>
+
+<style scoped>
+    .coucou{
+        background-color: blue;
+        display: flex;
+        justify-content: space-between;
+        padding: 1vh 2vh 2vh 2vh;
+        position: absolute;
+        bottom: 0;
+        width: 80%;
+    }
+
+
+    .block-event{
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .block-event-central{
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .little-block{
+        display:flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .width-button-event{
+        width: 35vh;
+    
+        </div>
+        <div>
+            <p>Event santés</p>
+            <v-btn variant="outlined" @click="ToggleHealth(1)">
+                Marrée noire
+            </v-btn>
+            <v-btn variant="outlined" @click="ToggleHealth(2)">
+                Mise en place d'un quota de peche
+            </v-btn>
+            <v-btn variant="outlined" @click="ToggleHealth(3)">
+                Ajouter des filets de recuperation du plastique dans les rivieres
+            </v-btn>
+            <v-btn variant="outlined" @click="ToggleHealth(4)">
+                Augmenter la polution micro-plastique
+            </v-btn>
+        </div>
+        <p>Event pollution</p>
+        <v-btn variant="outlined" @click="TogglePollution(1)">
+            Passage aux energies renouvelables
         </v-btn>
-        <v-btn variant="outlined" @click="ToggleHealth(2)">
-            Mise en place d'un quota de peche
-        </v-btn>
-        <v-btn variant="outlined" @click="ToggleHealth(3)">
-            Ajouter des filets de recuperation du plastique dans les rivieres
-        </v-btn>
-        <v-btn variant="outlined" @click="ToggleHealth(4)">
-            Augmenter la polution micro-plastique
+        <v-btn variant="outlined" @click="TogglePollution(2)">
+            Que se passe t'il si il y a deforestation
         </v-btn>
     </div>
-    <p>Event pollution</p>
-    <v-btn variant="outlined" @click="TogglePollution(1)">
-        Passage aux energies renouvelables
-    </v-btn>
-    <v-btn variant="outlined" @click="TogglePollution(2)">
-        Que se passe t'il si il y a deforestation
-    </v-btn>
 </template>
+<style scoped>
+    .coucou{
+        position: relative;
+        z-index: 10;
+        height: 100%;
+    }
+</style>

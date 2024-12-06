@@ -5,6 +5,7 @@
       v-for="part in bodyParts"
       :key="part.name"
       @click="openModal(part)"
+      :id="part.name"
       prepend-icon="mdi-checkbox-marked-circle"
       class="mb-4 mx-4"
     >
