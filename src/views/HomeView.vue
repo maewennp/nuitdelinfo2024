@@ -2,7 +2,7 @@
 import TheWelcome from '../components/TheWelcome.vue'
 import InfoModale from '@/components/InfoModale.vue'
 import Gauge from '../components/Gauge.vue'
-import Event from '@/components/Event.vue'
+// import Event from '@/components/Event.vue'
 </script>
 <script lang="ts">
 import { ref } from 'vue';
@@ -73,7 +73,7 @@ import { ref } from 'vue';
         // console.log(Temperature);
         // (document.getElementById("background")as HTMLImageElement).src = states[activeState % 5].background;
         // if (states[activeState % 5].filter != '') 
-        document.getElementById("main")!.classList.add('filterClass');
+        // document.getElementById("main")!.classList.add('filterClass');
         // console.log(activeState % 5);
         console.log(TrafficStatus%2);
         console.log(HealthStatus);
@@ -86,23 +86,43 @@ import { ref } from 'vue';
         TrafficStatus++;
         // console.log(TrafficStatus%2);
         if(TrafficStatus%2 == 0) {
-            Temperature+=10;
+            Temperature += 10;
+            //mer en rouge
+            // tete en rouge
+            // surbrillance de la tete
             trafficButtonMessage.value = "Traffic maritime : OFF";
         }
         else {
             Temperature-=10;
+            //mer plus en rouge
+            // tete plus en rouge
+            // tete plus en surbrillance
             trafficButtonMessage.value = "Traffic maritime : ON";
         }
         UpdateState();
     }
-    function ToggleHealth(Id: number) {
-        if(HealthStatus == Id) HealthStatus = 0;
-        else HealthStatus = Id;
+    function ToggleHealth(Id: number) {
+      // 1 : marre noire, 2 : quota peche, 3 : filet plastique, 4 : micro plastique
+        if(HealthStatus == Id){
+          HealthStatus = 0;
+          // reset la vue
+          Health += 10;
+        }
+        else {
+          Health -= 10;
+          HealthStatus = Id;
+        } 
         UpdateState();
     }
-    function TogglePollution(Id: number) {
-        if(PollutionStatus == Id) PollutionStatus = 0;
-        else PollutionStatus = Id;
+    function TogglePollution(Id: number) {
+        if(PollutionStatus == Id) {
+          CO2 += 10;
+          PollutionStatus = 0;
+        }
+        else {
+          CO2 -= 10;
+          PollutionStatus = Id;
+        }
         UpdateState();
     }
 </script>
