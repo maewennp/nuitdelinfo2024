@@ -9,7 +9,7 @@ import Event from '@/components/Event.vue'
 import { ref } from 'vue';
 
 const Temperature = ref(0);
-const CO2 = ref(0);
+const CO2 = ref(5);
 const Health = ref(0);
 
 let State1 = {
@@ -147,14 +147,18 @@ function TogglePollution(Id: number) {
   if (PollutionStatus == Id) {
     document.getElementById("Poumons")!.style.visibility = "hidden";
     // document.getElementById('Pollution'+activeButtonPollution)?.classList.remove('activeButton');
-    CO2.value = 0;
+    CO2.value = 5;
     PollutionStatus = 0;
   }
   else {
     activeButtonPollution = Id;
     document.getElementById('Pollution'+activeButtonPollution)?.classList.add('activeButton');
     document.getElementById("Poumons")!.style.visibility = "visible";
-    if (CO2.value>=0) CO2.value = 10;
+    if (CO2.value>=0) {
+      if(Id == 2)
+        CO2.value = 10;
+      else CO2.value = 0;
+    }
     PollutionStatus = Id;
   }
   UpdateState();

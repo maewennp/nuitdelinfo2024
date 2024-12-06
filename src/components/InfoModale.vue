@@ -7,6 +7,7 @@
       :id="part.name"
       prepend-icon="mdi-checkbox-marked-circle"
       class="mb-4 mx-4"
+      style = "visibility: hidden"
     >
       {{ part.name }}
     </v-btn>
