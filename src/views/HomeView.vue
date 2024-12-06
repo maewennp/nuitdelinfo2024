@@ -2,6 +2,7 @@
 import TheWelcome from '../components/TheWelcome.vue'
 import InfoModale from '@/components/InfoModale.vue'
 import Gauge from '../components/Gauge.vue'
+import SliderTIckDetails from '@/components/SliderTIckDetails.vue'
 // import Event from '@/components/Event.vue'
 </script>
 <script lang="ts">
@@ -85,6 +86,7 @@ function ToggleTraffic() {
     // surbrillance de la tete
     trafficButtonMessage.value = "Traffic maritime : OFF";
     document.getElementById("Tête")!.style.visibility = "hidden";
+    document.getElementById("Sang")!.style.visibility = "hidden";
   }
   else {
     Temperature -= 10;
@@ -94,6 +96,7 @@ function ToggleTraffic() {
     // tete plus en surbrillance
     trafficButtonMessage.value = "Traffic maritime : ON";
     document.getElementById("Tête")!.style.visibility = "visible";
+    document.getElementById("Sang")!.style.visibility = "visible";
   }
   UpdateState();
 }
@@ -102,6 +105,7 @@ function ToggleHealth(Id: number) {
   if (HealthStatus == Id) {
     if (Id == 1) document.getElementById("ocean")!.classList.remove('grayClass');
     document.getElementById("Estomac")!.style.visibility = "hidden";
+    document.getElementById("Peau")!.style.visibility = "hidden";
     document.getElementById("Reins")!.style.visibility = "hidden";
     
     HealthStatus = 0;
@@ -112,6 +116,7 @@ function ToggleHealth(Id: number) {
     if (Id == 1) document.getElementById("ocean")!.classList.add('grayClass');
     
     document.getElementById("Estomac")!.style.visibility = "visible";
+    document.getElementById("Peau")!.style.visibility = "visible";
     document.getElementById("Reins")!.style.visibility = "visible";
     
     Health -= 10;
@@ -121,20 +126,24 @@ function ToggleHealth(Id: number) {
 }
 function TogglePollution(Id: number) {
   if (PollutionStatus == Id) {
-    document.getElementById("Poumons")!.style.visibility = "hidden";
+    document.getElementById("Poumon")!.style.visibility = "hidden";
     CO2 += 10;
     PollutionStatus = 0;
   }
   else {
-    document.getElementById("Poumons")!.style.visibility = "visible";
+    document.getElementById("Poumon")!.style.visibility = "visible";
     CO2 -= 10;
     PollutionStatus = Id;
   }
   UpdateState();
 }
+let valueTest = 1
 </script>
 <template>
   <main id="main">
+    <SliderTIckDetails
+      :valueSlider="valueTest"
+    />
     <InfoModale></InfoModale>
     <div class="container">
 
