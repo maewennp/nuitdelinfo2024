@@ -67,8 +67,7 @@ import { ref } from 'vue';
         // console.log(Temperature);
         // (document.getElementById("background")as HTMLImageElement).src = states[activeState % 5].background;
         // if (states[activeState % 5].filter != '') 
-        document.getElementsByClassName("coucou")!.style = states[activeState % 5].filter;
-
+        document.getElementsByTagName("main")!.style = states[activeState % 5].filter;
         // console.log(activeState % 5);
         console.log(TrafficStatus%2);
         console.log(HealthStatus);
@@ -108,6 +107,7 @@ import { ref } from 'vue';
         <div class="block-event">
     <div id = "moi" class="coucou">
 
+    <div>
         <img id="background" src="">
         <div>
             <p>Event temperature</p>
