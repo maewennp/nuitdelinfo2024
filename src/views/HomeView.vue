@@ -248,9 +248,10 @@ body {
 }
 
 .coucou {
+    background-color: #083c7c;
     display: flex;
     justify-content: space-between;
-    padding: 2vh 2vh 1vh 2vh;
+    padding: 1vh 1vh 1vh 1vh;
     position: absolute;
     bottom: 0;
     width: 100%;
