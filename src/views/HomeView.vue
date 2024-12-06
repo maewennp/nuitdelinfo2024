@@ -84,6 +84,7 @@ function ToggleTraffic() {
     // tete en rouge
     // surbrillance de la tete
     trafficButtonMessage.value = "Traffic maritime : OFF";
+    document.getElementById("Tête")!.style.visibility = "hidden";
   }
   else {
     Temperature -= 10;
@@ -92,6 +93,7 @@ function ToggleTraffic() {
     // tete plus en rouge
     // tete plus en surbrillance
     trafficButtonMessage.value = "Traffic maritime : ON";
+    document.getElementById("Tête")!.style.visibility = "visible";
   }
   UpdateState();
 }
@@ -99,12 +101,19 @@ function ToggleHealth(Id: number) {
   // 1 : marre noire, 2 : quota peche, 3 : filet plastique, 4 : micro plastique
   if (HealthStatus == Id) {
     if (Id == 1) document.getElementById("ocean")!.classList.remove('grayClass');
+    document.getElementById("Estomac")!.style.visibility = "hidden";
+    document.getElementById("Reins")!.style.visibility = "hidden";
+    
     HealthStatus = 0;
     // reset la vue
     Health += 10;
   }
   else {
     if (Id == 1) document.getElementById("ocean")!.classList.add('grayClass');
+    
+    document.getElementById("Estomac")!.style.visibility = "visible";
+    document.getElementById("Reins")!.style.visibility = "visible";
+    
     Health -= 10;
     HealthStatus = Id;
   }
@@ -112,10 +121,12 @@ function ToggleHealth(Id: number) {
 }
 function TogglePollution(Id: number) {
   if (PollutionStatus == Id) {
+    document.getElementById("Poumons")!.style.visibility = "hidden";
     CO2 += 10;
     PollutionStatus = 0;
   }
   else {
+    document.getElementById("Poumons")!.style.visibility = "visible";
     CO2 -= 10;
     PollutionStatus = Id;
   }
@@ -124,7 +135,7 @@ function TogglePollution(Id: number) {
 </script>
 <template>
   <main id="main">
-    <info-modale></info-modale>
+    <InfoModale></InfoModale>
     <div class="container">
 
       <div id="sky">
