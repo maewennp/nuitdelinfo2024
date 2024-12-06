@@ -66,15 +66,7 @@ import { ref } from 'vue';
     let PollutionStatus = 0;
 
     function UpdateState(){
-        // console.log(++activeState % 5);
         activeState++;
-        // console.log(states[activeState % 5]);
-        // UpdateSliders(states[activeState % 5].TemperatureUpdates, states[activeState % 5].CO2Updates, states[activeState % 5].PolutionUpdates, states[activeState % 5].FishingUpdates);
-        // console.log(Temperature);
-        // (document.getElementById("background")as HTMLImageElement).src = states[activeState % 5].background;
-        // if (states[activeState % 5].filter != '') 
-        // document.getElementById("main")!.classList.add('filterClass');
-        // console.log(activeState % 5);
         console.log(TrafficStatus%2);
         console.log(HealthStatus);
         console.log(PollutionStatus);
@@ -86,29 +78,33 @@ import { ref } from 'vue';
         TrafficStatus++;
         // console.log(TrafficStatus%2);
         if(TrafficStatus%2 == 0) {
-            Temperature += 10;
-            //mer en rouge
-            // tete en rouge
-            // surbrillance de la tete
-            trafficButtonMessage.value = "Traffic maritime : OFF";
+          document.getElementById("ocean")!.classList.remove('redClass');
+          Temperature += 10;
+          //mer en rouge
+          // tete en rouge
+          // surbrillance de la tete
+          trafficButtonMessage.value = "Traffic maritime : OFF";
         }
         else {
-            Temperature-=10;
-            //mer plus en rouge
-            // tete plus en rouge
-            // tete plus en surbrillance
-            trafficButtonMessage.value = "Traffic maritime : ON";
+          Temperature-=10;
+          document.getElementById("ocean")!.classList.add('redClass');
+          //mer plus en rouge
+          // tete plus en rouge
+          // tete plus en surbrillance
+          trafficButtonMessage.value = "Traffic maritime : ON";
         }
         UpdateState();
     }
     function ToggleHealth(Id: number) {
       // 1 : marre noire, 2 : quota peche, 3 : filet plastique, 4 : micro plastique
         if(HealthStatus == Id){
+          if (Id == 1) document.getElementById("ocean")!.classList.add('defaultClass');
           HealthStatus = 0;
           // reset la vue
           Health += 10;
         }
         else {
+          if (Id == 1) document.getElementById("ocean")!.classList.add('grayClass');
           Health -= 10;
           HealthStatus = Id;
         } 
@@ -161,7 +157,7 @@ import { ref } from 'vue';
             Que se passe t'il si il y a deforestation
         </v-btn>
     </div>
-    <div class="ocean">
+    <div class="ocean" id="ocean">
     <div class="wave"></div>
     <div class="wave"></div>
     <div class="wave"></div>
@@ -170,8 +166,14 @@ import { ref } from 'vue';
 </template>
 
 <style scoped>
-  .filterClass{
+  .redClass{
     filter: sepia(1) saturate(10) hue-rotate(-30deg);
+  }
+  .grayClass{
+    filter: grayscale(100%)
+  }
+  .defaultClass{
+    filter: none;
   }
 .ocean {
   height: 280px;
