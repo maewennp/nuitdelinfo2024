@@ -5,6 +5,7 @@ import SliderTIckDetails from '@/components/SliderTIckDetails.vue'
 // import Event from '@/components/Event.vue'
 import Event from '@/components/Event.vue'
 </script>
+
 <script lang="ts">
 import { ref } from 'vue';
 
