@@ -178,8 +178,8 @@ let activeButtonPollution = 0;
       <div class="block-slider">
         <h2  class="title-information">Informations</h2>
         <SliderTIckDetails :value-slider="-Temperature" :value-content="'Temperature'" />
-        <SliderTIckDetails :value-slider="CO2" :value-content="'Santé'"/>
         <SliderTIckDetails :value-slider="(-Health + 10 / 2)" :value-content="'Pollution'"/>
+        <SliderTIckDetails :value-slider="CO2" :value-content="'Santé'"/>
       </div>
 
       <div id="sky">

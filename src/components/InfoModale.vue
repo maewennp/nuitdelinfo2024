@@ -100,17 +100,6 @@ export default {
         "Les mangroves offrent également un habitat essentiel pour de nombreuses espèces marines, notamment les poissons, les crustacés et les mollusques, servant de nurserie pour leurs juvéniles. Elles abritent ainsi une biodiversité exceptionnelle, tant végétale qu'animale. Elles sont des écosystèmes complexes où de nombreuses espèces interagissent.\n"
       },
       {
-        name: "Poumons",
-        dans_la_mer: "CO2 / O2, acidification et photosynthèse",
-        videoId: "44pp5k2ZFpE",
-        commentaire: "Les poumons nous permettent d’absorber l’oxygène et d’éliminer le CO2 essentiels à notre survie. Les océans sont considérés comme le poumon de la planète puisqu’ils réalisent l’opération inverse pour tous les organismes vivants, via le phytoplancton : produire une grande partie de l’oxygène que nous respirons et absorber les gaz à effet de serre, assainissant ainsi l’atmosphère.\n" +
-        "Le phytoplancton est capable, en utilisant l’énergie lumineuse du soleil et les sels nutritifs dissous dans l’eau de mer, de fixer de grandes quantités de dioxyde de carbone pour synthétiser les molécules permettant de fabriquer de nouvelles cellules. On estime que ces microorganismes sont responsables d’environ la moitié de la fixation de carbone sur Terre. Les cyanobactéries sont les seules bactéries capables de faire la photosynthèse oxygénique et elles sont d’ailleurs, évolutivement parlant, à l’origine de la photosynthèse des plantes terrestres.\n" +
-        "Depuis la fin des années 1980, 95 % des eaux océaniques de surface en haute mer ont vu leur acidité augmenter. Les océans absorbent environ 30 % du dioxyde de carbone (CO2) que nous produisons, ce qui réduit le pH de l’eau de mer. C’est ce que l’on appelle l’acidification des océans. Avec des taux de CO2 dans l’air supérieurs de 50 % aux niveaux pré-industriels, le problème continue de s’aggraver.\n" +
-        "Pour les écosystèmes marins, l’acidification des océans pose un double problème : une acidité plus élevée et une diminution des ions carbonates (CO32-). Les organismes calcifiants, comme les huîtres, les crabes, les oursins, les homards et les coraux, ont besoin de CO32- pour développer et entretenir leur coquille et leur squelette. Des études indiquent également que la coquille et le squelette de ces organismes se décomposent plus facilement lorsque l’acidité augmente.\n" +
-        "En dépensant de l’énergie pour résister à des conditions plus acides, les organismes peuvent amenuiser les ressources dont ils disposent pour les processus physiologiques, tels que la reproduction et la croissance, ce qui peut menacer la stabilité des chaînes alimentaires, la résilience de l’écosystème et les activités économiques telles que la pêche et le tourisme.\n"
-
-      },
-      {
         name: "Estomac",
         dans_la_mer: "Biodiversité",
         videoId: "", // Pas de vidéo
@@ -121,6 +110,18 @@ export default {
           "Le pétrole\n" +
           "On estime à six millions de tonnes par an la quantité d’hydrocarbures introduite dans les océans par l’activité humaine, ce qui constitue une cause fondamentale de la pollution des océans. Les eaux usées domestiques et de ruissellement contiennent de nombreux polluants (biologiques, chimiques et minéraux) qui peuvent perturber les équilibres écologiques. Les eaux de ruissellement peuvent être particulièrement polluées par le lessivage des sols et des surfaces imperméabilisées (routes, parkings, toits, …), par la remise en suspension des ordures stockées dans les décharges… De même nature que les eaux domestiques, elles peuvent en plus contenir des métaux lourds et toxiques : plomb, zinc, hydrocarbures, mercure…\n",
       },
+      {
+        name: "Poumons",
+        dans_la_mer: "CO2 / O2, acidification et photosynthèse",
+        videoId: "44pp5k2ZFpE",
+        commentaire: "Les poumons nous permettent d’absorber l’oxygène et d’éliminer le CO2 essentiels à notre survie. Les océans sont considérés comme le poumon de la planète puisqu’ils réalisent l’opération inverse pour tous les organismes vivants, via le phytoplancton : produire une grande partie de l’oxygène que nous respirons et absorber les gaz à effet de serre, assainissant ainsi l’atmosphère.\n" +
+        "Le phytoplancton est capable, en utilisant l’énergie lumineuse du soleil et les sels nutritifs dissous dans l’eau de mer, de fixer de grandes quantités de dioxyde de carbone pour synthétiser les molécules permettant de fabriquer de nouvelles cellules. On estime que ces microorganismes sont responsables d’environ la moitié de la fixation de carbone sur Terre. Les cyanobactéries sont les seules bactéries capables de faire la photosynthèse oxygénique et elles sont d’ailleurs, évolutivement parlant, à l’origine de la photosynthèse des plantes terrestres.\n" +
+        "Depuis la fin des années 1980, 95 % des eaux océaniques de surface en haute mer ont vu leur acidité augmenter. Les océans absorbent environ 30 % du dioxyde de carbone (CO2) que nous produisons, ce qui réduit le pH de l’eau de mer. C’est ce que l’on appelle l’acidification des océans. Avec des taux de CO2 dans l’air supérieurs de 50 % aux niveaux pré-industriels, le problème continue de s’aggraver.\n" +
+        "Pour les écosystèmes marins, l’acidification des océans pose un double problème : une acidité plus élevée et une diminution des ions carbonates (CO32-). Les organismes calcifiants, comme les huîtres, les crabes, les oursins, les homards et les coraux, ont besoin de CO32- pour développer et entretenir leur coquille et leur squelette. Des études indiquent également que la coquille et le squelette de ces organismes se décomposent plus facilement lorsque l’acidité augmente.\n" +
+        "En dépensant de l’énergie pour résister à des conditions plus acides, les organismes peuvent amenuiser les ressources dont ils disposent pour les processus physiologiques, tels que la reproduction et la croissance, ce qui peut menacer la stabilité des chaînes alimentaires, la résilience de l’écosystème et les activités économiques telles que la pêche et le tourisme.\n"
+
+      },
+      
     ];
 
     const dialog = ref(false);
