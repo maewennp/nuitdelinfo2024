@@ -8,9 +8,9 @@ import Event from '@/components/Event.vue'
 <script lang="ts">
 import { ref } from 'vue';
 
-let Temperature = 0;
-let CO2 = 0;
-let Health = 0;
+const Temperature = ref(0);
+const CO2 = ref(0);
+const Health = ref(0);
 
 let State1 = {
   background: 'assets/background1.png', // ocean
@@ -58,9 +58,9 @@ console.log(states);
 console.log(states[0]);
 let activeState = 0;
 function UpdateSliders(TempUpdate: number, CO2Update: number, HealthUpdate: number) {
-  Temperature = Temperature + TempUpdate;
-  CO2 = CO2 + CO2Update;
-  Health = Health + HealthUpdate;
+  Temperature.value = Temperature.value + TempUpdate;
+  CO2.value = CO2.value + CO2Update;
+  Health.value = Health.value + HealthUpdate;
 }
 let TrafficStatus = 10;
 let HealthStatus = 10;
@@ -71,7 +71,7 @@ function UpdateState() {
   console.log(TrafficStatus % 2);
   console.log(HealthStatus);
   console.log(PollutionStatus);
-  console.log("Temperature" + Temperature + " CO2" + CO2 + " Health " + Health);
+  console.log("Temperature" + Temperature.value + " CO2" + CO2.value + " Health " + Health.value);
 }
 const trafficButtonMessage = ref<string>("Traffic maritime : OFF");
 // let trafficButtonMessage = 'Traffic maritime : ON';
@@ -84,7 +84,7 @@ function ToggleTraffic() {
   if (TrafficStatus % 2 == 0) {
     document.getElementById('TrafficButton')?.classList.remove('activeButton');
     document.getElementById("ocean")!.classList.remove('redClass');
-    Temperature += 10;
+    Temperature.value += 10;
     //mer en rouge
     // tete en rouge
     // surbrillance de la tete
@@ -94,7 +94,7 @@ function ToggleTraffic() {
   }
   else {
     document.getElementById('TrafficButton')?.classList.add('activeButton');
-    Temperature -= 10;
+    Temperature.value -= 10;
     document.getElementById("ocean")!.classList.add('redClass');
     //mer plus en rouge
     // tete plus en rouge
@@ -118,8 +118,8 @@ function ToggleHealth(Id: number) {
     
     HealthStatus = 0;
     // reset la vue
-    if (Id == 1 || Id == 4) Health = 0;
-    else Health = 0;
+    if (Id == 1 || Id == 4) Health.value = 0;
+    else Health.value = 0;
   }
   else {
     if(activeButtonHealth == 1) document.getElementById("ocean")!.classList.remove('grayClass');
@@ -132,10 +132,10 @@ function ToggleHealth(Id: number) {
     document.getElementById("Rein")!.style.visibility = "visible";
     
     // if (Health>=0) {
-      if (Id == 1 || Id == 4) Health = -10;
+      if (Id == 1 || Id == 4) Health.value = -10;
     // }
     // if (Health<0) {
-      if (Id == 2 || Id == 3) Health = 10;
+      if (Id == 2 || Id == 3) Health.value = 10;
     // }
     HealthStatus = Id;
   }
@@ -147,14 +147,14 @@ function TogglePollution(Id: number) {
   if (PollutionStatus == Id) {
     document.getElementById("Poumons")!.style.visibility = "hidden";
     // document.getElementById('Pollution'+activeButtonPollution)?.classList.remove('activeButton');
-    CO2 = 0;
+    CO2.value = 0;
     PollutionStatus = 0;
   }
   else {
     activeButtonPollution = Id;
     document.getElementById('Pollution'+activeButtonPollution)?.classList.add('activeButton');
     document.getElementById("Poumons")!.style.visibility = "visible";
-    if (CO2>=0) CO2 = 10;
+    if (CO2.value>=0) CO2.value = 10;
     PollutionStatus = Id;
   }
   UpdateState();
@@ -172,9 +172,9 @@ let activeButtonPollution = 0;
     <div class="container">
       <div class="block-slider">
         <h2  class="title-information">Informations</h2>
-        <SliderTIckDetails :value-slider="Temperature" :value-content="'Temperature'"/>
+        <SliderTIckDetails :value-slider="-Temperature" :value-content="'Temperature'" />
         <SliderTIckDetails :value-slider="CO2" :value-content="'Santé'"/>
-        <SliderTIckDetails :value-slider="Health" :value-content="'Pollution'"/>
+        <SliderTIckDetails :value-slider="-Health" :value-content="'Pollution'"/>
       </div>
 
       <div id="sky">
