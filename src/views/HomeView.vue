@@ -170,6 +170,12 @@ let activeButtonPollution = 0;
   <main id="main">
     <InfoModale></InfoModale>
     <div class="container">
+      <div class="block-slider">
+        <h2  class="title-information">Informations</h2>
+        <SliderTIckDetails :value-slider="Temperature" :value-content="'Temperature'"/>
+        <SliderTIckDetails :value-slider="CO2" :value-content="'Santé'"/>
+        <SliderTIckDetails :value-slider="Health" :value-content="'Pollution'"/>
+      </div>
 
       <div id="sky">
         <div class="cloud"></div>
@@ -720,6 +726,18 @@ body {
   bottom: 0;
   animation: wave 20s -1s linear infinite;
   opacity: 0.5;
+}
+
+.title-information{
+  text-align: center;
+}
+
+.block-slider{
+  display: block;
+  width: 20%;
+  float: right;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 @keyframes wave {
