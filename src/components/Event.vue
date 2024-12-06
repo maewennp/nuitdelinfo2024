@@ -105,34 +105,82 @@ import { ref } from 'vue';
     }
 </script>
 <template>
-    <img id="background" src="">
-    <div>
-        <p>Event temperature</p>
-        <v-btn id = "TrafficButton" variant="outlined" @click="ToggleTraffic()">
-            {{trafficButtonMessage}}
-        </v-btn>
+    <div class="coucou">
 
+        <!-- <img id="background" src=""> -->
+        <div class="block-event">
+            <p>Event temperature</p>
+            <v-btn id = "TrafficButton" variant="outlined" @click="ToggleTraffic()">
+                {{trafficButtonMessage}}
+            </v-btn>
+        </div>
+
+        <div class="block-event-central">
+            <p>Event santés</p>
+            <div class="little-block">
+                <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(1)">
+                Marrée noire
+                </v-btn>
+                <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(3)">
+                    Filets recup plastique
+                </v-btn>
+            </div>
+
+            <div class="little-block">
+                <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(2)">
+                    Quota de peche
+                </v-btn>
+                <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(4)">
+                    Polution micro-plastique
+                </v-btn>
+            </div>
+        </div>
+
+        <div class="block-event">
+            <p>Event pollution</p>
+            <v-btn class="width-button-event" variant="outlined" @click="TogglePollution(1)">
+                Energies renouvelables
+            </v-btn>
+            <v-btn class="width-button-event" variant="outlined" @click="TogglePollution(2)">
+                Déforestation
+            </v-btn>
+        </div>
     </div>
-    <div>
-        <p>Event santés</p>
-        <v-btn variant="outlined" @click="ToggleHealth(1)">
-            Marrée noire
-        </v-btn>
-        <v-btn variant="outlined" @click="ToggleHealth(2)">
-            Mise en place d'un quota de peche
-        </v-btn>
-        <v-btn variant="outlined" @click="ToggleHealth(3)">
-            Ajouter des filets de recuperation du plastique dans les rivieres
-        </v-btn>
-        <v-btn variant="outlined" @click="ToggleHealth(4)">
-            Augmenter la polution micro-plastique
-        </v-btn>
-    </div>
-    <p>Event pollution</p>
-    <v-btn variant="outlined" @click="TogglePollution(1)">
-        Passage aux energies renouvelables
-    </v-btn>
-    <v-btn variant="outlined" @click="TogglePollution(2)">
-        Que se passe t'il si il y a deforestation
-    </v-btn>
 </template>
+
+<style scoped>
+    .coucou{
+        background-color: blue;
+        display: flex;
+        justify-content: space-between;
+        padding: 1vh 2vh 2vh 2vh;
+        position: absolute;
+        bottom: 0;
+        width: 80%;
+    }
+
+
+    .block-event{
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .block-event-central{
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .little-block{
+        display:flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .width-button-event{
+        width: 35vh;
+    }
+</style>
