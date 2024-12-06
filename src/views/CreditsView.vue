@@ -7,6 +7,8 @@ const titleClass = ref('title')
 </script>
 
 <template>
+	<img class="logo_race_for_water" src="../assets/logoRaceForWater.png" alt="">
+	<button><a class="lien-credits" href="/">Home</a></button>
   <h1 :class="titleClass">Credits</h1>
   <div class="imgbox">
    
@@ -58,9 +60,7 @@ img {
 img:hover{
 	opacity: 0.3;
 }
-* {
-	background-color: rgb(13, 162, 207);
-}
+
 img:hover .text {
     opacity: 1;
 }
@@ -72,5 +72,15 @@ img:hover .text {
   padding: 16px 32px;
 }
 
+.logo_race_for_water{
+  width: 60px;
+  float: left;
+}
+
+.lien-credits{
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
+}
 
 </style>
