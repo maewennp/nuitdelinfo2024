@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
 import InfoModale from '@/components/InfoModale.vue'
 import Gauge from '../components/Gauge.vue'
 import SliderTIckDetails from '@/components/SliderTIckDetails.vue'
 // import Event from '@/components/Event.vue'
+import Event from '@/components/Event.vue'
 </script>
 <script lang="ts">
 import { ref } from 'vue';
@@ -168,9 +168,6 @@ let activeButtonPollution = 0;
 </script>
 <template>
   <main id="main">
-    <SliderTIckDetails
-      :valueSlider="valueTest"
-    />
     <InfoModale></InfoModale>
     <div class="container">
 
