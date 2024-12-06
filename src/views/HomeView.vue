@@ -98,7 +98,7 @@ function ToggleTraffic() {
 function ToggleHealth(Id: number) {
   // 1 : marre noire, 2 : quota peche, 3 : filet plastique, 4 : micro plastique
   if (HealthStatus == Id) {
-    if (Id == 1) document.getElementById("ocean")!.classList.add('defaultClass');
+    if (Id == 1) document.getElementById("ocean")!.classList.remove('grayClass');
     HealthStatus = 0;
     // reset la vue
     Health += 10;
