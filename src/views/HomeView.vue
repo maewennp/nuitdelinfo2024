@@ -62,8 +62,8 @@ function UpdateSliders(TempUpdate: number, CO2Update: number, HealthUpdate: numb
   CO2 = CO2 + CO2Update;
   Health = Health + HealthUpdate;
 }
-let TrafficStatus = 0;
-let HealthStatus = 0;
+let TrafficStatus = 10;
+let HealthStatus = 10;
 let PollutionStatus = 0;
 
 function UpdateState() {
@@ -73,12 +73,16 @@ function UpdateState() {
   console.log(PollutionStatus);
   console.log("Temperature" + Temperature + " CO2" + CO2 + " Health " + Health);
 }
-const trafficButtonMessage = ref<string>("Traffic maritime : ON");
+const trafficButtonMessage = ref<string>("Traffic maritime : OFF");
 // let trafficButtonMessage = 'Traffic maritime : ON';
 function ToggleTraffic() {
   TrafficStatus++;
   // console.log(TrafficStatus%2);
+
+  if (activeButtonTemperature != 0)
+    document.getElementById('TrafficButton')?.classList.remove('activeButton');
   if (TrafficStatus % 2 == 0) {
+    document.getElementById('TrafficButton')?.classList.remove('activeButton');
     document.getElementById("ocean")!.classList.remove('redClass');
     Temperature += 10;
     //mer en rouge
@@ -89,6 +93,7 @@ function ToggleTraffic() {
     document.getElementById("Sang")!.style.visibility = "hidden";
   }
   else {
+    document.getElementById('TrafficButton')?.classList.add('activeButton');
     Temperature -= 10;
     document.getElementById("ocean")!.classList.add('redClass');
     //mer plus en rouge
@@ -102,7 +107,10 @@ function ToggleTraffic() {
 }
 function ToggleHealth(Id: number) {
   // 1 : marre noire, 2 : quota peche, 3 : filet plastique, 4 : micro plastique
+  if (activeButtonHealth != 0)
+    document.getElementById('Health'+activeButtonHealth)?.classList.remove('activeButton');
   if (HealthStatus == Id) {
+    document.getElementById('Health'+activeButtonHealth)?.classList.remove('activeButton');
     if (Id == 1) document.getElementById("ocean")!.classList.remove('grayClass');
     document.getElementById("Estomac")!.style.visibility = "hidden";
     document.getElementById("Peau")!.style.visibility = "hidden";
@@ -110,34 +118,53 @@ function ToggleHealth(Id: number) {
     
     HealthStatus = 0;
     // reset la vue
-    Health += 10;
+    if (Id == 1 || Id == 4) Health = 0;
+    else Health = 0;
   }
   else {
+    if(activeButtonHealth == 1) document.getElementById("ocean")!.classList.remove('grayClass');
+    activeButtonHealth = Id;
+    document.getElementById('Health'+activeButtonHealth)?.classList.add('activeButton');
     if (Id == 1) document.getElementById("ocean")!.classList.add('grayClass');
     
     document.getElementById("Estomac")!.style.visibility = "visible";
     document.getElementById("Peau")!.style.visibility = "visible";
     document.getElementById("Reins")!.style.visibility = "visible";
     
-    Health -= 10;
+    // if (Health>=0) {
+      if (Id == 1 || Id == 4) Health = -10;
+    // }
+    // if (Health<0) {
+      if (Id == 2 || Id == 3) Health = 10;
+    // }
     HealthStatus = Id;
   }
   UpdateState();
 }
 function TogglePollution(Id: number) {
+  if (activeButtonPollution != 0)
+    document.getElementById('Pollution'+activeButtonPollution)?.classList.remove('activeButton');
   if (PollutionStatus == Id) {
     document.getElementById("Poumon")!.style.visibility = "hidden";
-    CO2 += 10;
+    // document.getElementById('Pollution'+activeButtonPollution)?.classList.remove('activeButton');
+    CO2 = 0;
     PollutionStatus = 0;
   }
   else {
+    activeButtonPollution = Id;
+    document.getElementById('Pollution'+activeButtonPollution)?.classList.add('activeButton');
     document.getElementById("Poumon")!.style.visibility = "visible";
-    CO2 -= 10;
+    if (CO2>=0) CO2 = 10;
     PollutionStatus = Id;
   }
   UpdateState();
 }
+
 let valueTest = 1
+let activeButtonHealth = 0;
+let activeButtonTemperature = 0;
+let activeButtonPollution = 0;
+
 </script>
 <template>
   <main id="main">
@@ -209,19 +236,19 @@ let valueTest = 1
       <div class="block-event-central">
         <p class="title-event">Event santés</p>
         <div class="little-block">
-          <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(1)">
+          <v-btn class="width-button-event" id = "Health1" variant="outlined" @click="ToggleHealth(1)">
             Marrée noire
           </v-btn>
-          <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(3)">
+          <v-btn class="width-button-event" id = "Health3" variant="outlined" @click="ToggleHealth(3)">
             Filets recup plastique
           </v-btn>
         </div>
 
         <div class="little-block">
-          <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(2)">
+          <v-btn class="width-button-event" id = "Health2" variant="outlined" @click="ToggleHealth(2)">
             Quota de peche
           </v-btn>
-          <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(4)">
+          <v-btn class="width-button-event" id = "Health4" variant="outlined" @click="ToggleHealth(4)">
             Polution micro-plastique
           </v-btn>
         </div>
@@ -229,10 +256,10 @@ let valueTest = 1
 
       <div class="block-event">
         <p class="title-event">Event pollution</p>
-        <v-btn class="width-button-event" variant="outlined" @click="TogglePollution(1)">
+        <v-btn class="width-button-event" id = "Pollution1" variant="outlined" @click="TogglePollution(1)">
           Energies renouvelables
         </v-btn>
-        <v-btn class="width-button-event" variant="outlined" @click="TogglePollution(2)">
+        <v-btn class="width-button-event" id = "Pollution2" variant="outlined" @click="TogglePollution(2)">
           Déforestation
         </v-btn>
       </div>
@@ -242,6 +269,9 @@ let valueTest = 1
 </template>
 
 <style scoped>
+.activeButton {
+  background-color: green;
+}
 body {
   margin: 0;
   background-color: rgb(184, 236, 253);
