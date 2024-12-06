@@ -124,6 +124,7 @@ function TogglePollution(Id: number) {
 </script>
 <template>
   <main id="main">
+    <info-modale></info-modale>
     <div class="container">
 
       <div id="sky">
@@ -167,6 +168,12 @@ function TogglePollution(Id: number) {
       </div>
     </div>
 
+    <div class="ocean" id="ocean">
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+    </div>
+
     <div class="coucou">
 
       <!-- <img id="background" src=""> -->
@@ -174,7 +181,7 @@ function TogglePollution(Id: number) {
 
         <img id="background" src="">
         <div>
-          <p>Event temperature</p>
+          <p class="title-event">Event temperature</p>
           <v-btn id="TrafficButton" variant="outlined" @click="ToggleTraffic()">
             {{ trafficButtonMessage }}
           </v-btn>
@@ -182,7 +189,7 @@ function TogglePollution(Id: number) {
       </div>
 
       <div class="block-event-central">
-        <p>Event santés</p>
+        <p class="title-event">Event santés</p>
         <div class="little-block">
           <v-btn class="width-button-event" variant="outlined" @click="ToggleHealth(1)">
             Marrée noire
@@ -203,7 +210,7 @@ function TogglePollution(Id: number) {
       </div>
 
       <div class="block-event">
-        <p>Event pollution</p>
+        <p class="title-event">Event pollution</p>
         <v-btn class="width-button-event" variant="outlined" @click="TogglePollution(1)">
           Energies renouvelables
         </v-btn>
@@ -212,11 +219,7 @@ function TogglePollution(Id: number) {
         </v-btn>
       </div>
     </div>
-    <div class="ocean" id="ocean">
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-    </div>
+
   </main>
 </template>
 
@@ -227,13 +230,12 @@ body {
 }
 
 .coucou {
-    background-color: blue;
     display: flex;
     justify-content: space-between;
-    padding: 1vh 2vh 2vh 2vh;
+    padding: 2vh 2vh 1vh 2vh;
     position: absolute;
     bottom: 0;
-    width: 80%;
+    width: 100%;
     z-index: 10;
 }
 
@@ -243,6 +245,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    align-items: center;
 }
 
 .block-event-central {
@@ -255,11 +258,16 @@ body {
 .little-block {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 4px;
 }
 
 .width-button-event {
     width: 35vh;
+}
+
+.title-event{
+  text-align: center;
+  font-weight: bold;
 }
 
 .container {
