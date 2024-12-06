@@ -191,12 +191,10 @@ function TogglePollution(Id: number) {
       <div class="block-event">
 
         <img id="background" src="">
-        <div>
           <p class="title-event">Event temperature</p>
           <v-btn id="TrafficButton" variant="outlined" @click="ToggleTraffic()">
             {{ trafficButtonMessage }}
           </v-btn>
-        </div>
       </div>
 
       <div class="block-event-central">
@@ -248,6 +246,7 @@ body {
     bottom: 0;
     width: 100%;
     z-index: 10;
+    color: white;
 }
 
 
