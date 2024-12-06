@@ -172,6 +172,7 @@ let activeButtonPollution = 0;
 
 </script>
 <template>
+
   <main id="main">
     <InfoModale></InfoModale>
     <div class="container">

@@ -1,5 +1,8 @@
 <template>
+
   <div class="text-center">
+    <img class="logo_race_for_water" src="../assets/logoRaceForWater.png" alt="">
+    <button><a class="lien-credits" href="/credits">Crédits</a></button>
     <v-btn
       v-for="part in bodyParts"
       :key="part.name"
@@ -143,6 +146,17 @@ export default {
 </script>
 
 <style scoped>
+.logo_race_for_water{
+  width: 60px;
+  float: left;
+}
+
+.lien-credits{
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
+}
+
 .text-with-arrow {
   display: flex;
   align-items: center;
