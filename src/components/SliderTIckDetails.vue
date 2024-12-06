@@ -4,7 +4,9 @@ import type { ColorI } from '@/types/color.ts'
 
 const colors: ColorI[] = [
   { id: 0, value: "green" },
+  { id: 5, value: "yellow" },
   { id: 10, value: "red" },
+  { id: 15, value: "red" },
 ];
 
 const props = defineProps<{
@@ -13,6 +15,7 @@ const props = defineProps<{
 }>()
 
 const colorActive = computed(() => {
+  console.log('here' +props.valueSlider );
   const matchingColor = colors.find((color) => color.id === props.valueSlider);
   return matchingColor ? matchingColor.value : "green"; // Valeur par défaut
 });
@@ -30,7 +33,7 @@ console.log(colorActive.value);
         :model-value="props.valueSlider"
         min="0"
         max="10"
-        step="10"
+        step="5"
         show-ticks="always"
         >
       </v-slider>
